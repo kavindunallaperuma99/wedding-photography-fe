@@ -1,3 +1,4 @@
+import { Chat } from './../../model/chat.model';
 import { Reservation } from './../../../reservations/models/reservation.model';
 import { Observable } from 'rxjs';
 import { ReservationsService } from './../../../reservations/services/reservations.service';
@@ -9,5 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  selectedChat!: Chat;
   ngOnInit(): void {}
+
+  selectChat(chat: Chat) {
+    this.selectedChat = chat;
+  }
 }

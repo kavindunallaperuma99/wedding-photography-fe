@@ -1,0 +1,11 @@
+.message-container {
+  margin-top: 5px;
+  padding: 4px 0px;
+  border-radius: 10px;
+}
+
+.user-name {
+  font-size: small;
+  font-weight: bold;
+  color: red;
+}

@@ -1,3 +1,4 @@
+import { AdminModule } from './../admin/admin.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +17,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     FormsModule,
     ReactiveFormsModule,
     ReservationsRoutingModule,
+    AdminModule,
 
     ToastrModule.forRoot(),
   ],

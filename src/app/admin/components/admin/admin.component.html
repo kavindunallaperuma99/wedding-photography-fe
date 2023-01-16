@@ -16,7 +16,42 @@
   </div>
   <!-- END BREADCRUMB AREA -->
 
-  <app-reservations></app-reservations>
+  <!-- START MAIN CONTENT -->
+  <main class="main-content">
+    <!-- START CONTACT WRAP -->
+    <section class="contact pt-120 pb-90 bg--light-grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 contact__top">
+            <!-- START CONTACT INFORMATION -->
+            <div class="contact__info">
+              <div class="contact__info__image" data-black-overlay="2">
+                <app-chat-list
+                  (chatSelected)="selectChat($event)"
+                ></app-chat-list>
+              </div>
+              <div class="contact__info__content text-center">
+                <h5 class="contact__info__heading">Get in touch with us</h5>
+                TODO:PUT THE CHAT HERE
+                <app-chat-holder
+                  [mode]="'Admin'"
+                  [chat]="selectedChat"
+                ></app-chat-holder>
+              </div>
+            </div>
+            <!-- END CONTACT INFORMATION -->
+            <app-reservations></app-reservations>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END CONTACT WRAP -->
+    <!-- 
+    <div class="google-map-area">
+      <div id="google-map" class="google-map"></div>
+    </div> -->
+  </main>
+  <!-- END MAIN CONTENT -->
 
   <!-- START FOOTER AREA -->
   <footer id="footer" class="footer-area bg--dark-grey ptb-50">
