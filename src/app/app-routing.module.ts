@@ -18,8 +18,9 @@ const routes: Routes = [
   },
 
   {
-    path: 'homee',
-    component: HomeComponent,
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
 ];
 
