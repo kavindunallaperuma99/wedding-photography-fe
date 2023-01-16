@@ -1,7 +1,9 @@
+import { RoleGuard } from './guards/role.guard';
 import { HomeComponent } from './home/home/home.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserType } from './auth/enums/user-types.enum';
 
 const routes: Routes = [
   {
@@ -19,8 +21,16 @@ const routes: Routes = [
 
   {
     path: 'admin',
+    canActivate: [RoleGuard],
+    data: {
+      roles: [UserType.Admin],
+    },
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 

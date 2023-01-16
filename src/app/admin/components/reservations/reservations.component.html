@@ -1,0 +1,100 @@
+<!-- START MAIN CONTENT -->
+<main class="main-content">
+  <!-- START CONTACT WRAP -->
+  <section class="contact pt-120 pb-90 bg--light-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 contact__top">
+          <!-- START CONTACT INFORMATION -->
+          <div class="contact__info">
+            <div class="contact__info__image" data-black-overlay="2">
+              <img src="assets/images/contact/1.jpg" alt="contact image" />
+            </div>
+            <div class="contact__info__content text-center">
+              <h5 class="contact__info__heading">Get in touch with us</h5>
+              TODO:PUT THE CHAT HERE
+              <div class="single__info">
+                <div class="single__info__icon">
+                  <span class="ti ti-location-pin"></span>
+                </div>
+                <div class="single__info__text">
+                  <h5>Location :</h5>
+                  <p>77, seventh avenue, Brat road USA.</p>
+                </div>
+              </div>
+              <div class="single__info">
+                <div class="single__info__icon">
+                  <span class="ti ti-mobile"></span>
+                </div>
+                <div class="single__info__text">
+                  <h5>Phone :</h5>
+                  <p>
+                    <a href="callto:+000258028364358548"
+                      >+00 0258 028 364 - 358 548</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="single__info">
+                <div class="single__info__icon">
+                  <span class="ti ti-email"></span>
+                </div>
+                <div class="single__info__text">
+                  <h5>Mail :</h5>
+                  <p>
+                    <a href="mailto:yourmail.robi@gmail.com"
+                      >yourmail.robi@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END CONTACT INFORMATION -->
+          <!-- START CONTACT FORM -->
+          <div class="contact__form">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Bride's Name</th>
+                  <th scope="col">Groom's Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">ContactNumber</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Venue</th>
+                  <th scope="col">Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let reservation of reservations$ | async; index as i"
+                >
+                  <th scope="row">{{ i + 1 }}</th>
+
+                  <td>{{ reservation.bridesName }}</td>
+                  <td>{{ reservation.groomsName }}</td>
+                  <td>{{ reservation.email }}</td>
+                  <td>{{ reservation.contactNumber }}</td>
+                  <td>{{ reservation.date.toString().split("T")[0] }}</td>
+                  <td>{{ reservation.time }}</td>
+                  <td>{{ reservation.venue }}</td>
+                  <td>{{ reservation.message }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="form-message"></p>
+          </div>
+          <!-- END CONTACT FORM -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END CONTACT WRAP -->
+  <!-- 
+    <div class="google-map-area">
+      <div id="google-map" class="google-map"></div>
+    </div> -->
+</main>
+<!-- END MAIN CONTENT -->

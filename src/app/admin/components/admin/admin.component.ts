@@ -9,11 +9,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  reservations$: Observable<Reservation[]> = new Observable();
-
-  constructor(private reservationsService: ReservationsService) {
-    this.reservations$ = this.reservationsService.get();
-  }
-
   ngOnInit(): void {}
 }
