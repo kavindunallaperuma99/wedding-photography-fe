@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AdminLoginService } from './../../../admin/services/admin-login.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  constructor(private adminLoginService: AdminLoginService) {}
+  constructor(
+    private adminLoginService: AdminLoginService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -19,5 +23,9 @@ export class NavBarComponent implements OnInit {
 
   logout() {
     this.adminLoginService.logout();
+  }
+
+  navigate(url: string) {
+    this.router.navigateByUrl(url);
   }
 }

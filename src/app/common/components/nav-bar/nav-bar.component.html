@@ -45,62 +45,23 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about-us.html">about us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="portfolio.html">portfolio</a>
-                </li>
-                <li class="nav-item dropdown">
                   <a
-                    class="nav-link dropdown-toggle"
-                    href="index.html"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >Pages</a
+                    class="nav-link"
+                    (click)="navigate('/reserve')"
+                    routerLink="reserve"
+                    >reservations</a
                   >
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="dropdown-item">
-                      <a href="blog-list.html">Blog List</a>
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="blog-list-right-sidebar.html"
-                        >Blog List Right Sidebar</a
-                      >
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="blog-list-left-sidebar.html"
-                        >Blog List Left Sidebar</a
-                      >
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="blog-grid.html">Blog Grid</a>
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="blog-grid-right-sidebar.html"
-                        >Blog Grid Right Sidebar</a
-                      >
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="blog-grid-left-sidebar.html"
-                        >Blog Grid Left Sidebar</a
-                      >
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="single-blog.html">Single Blog</a>
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="portfolio.html">Portfolio</a>
-                    </li>
-                    <li class="dropdown-item">
-                      <a href="portfolio-container.html">Portfolio Container</a>
-                    </li>
-                  </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">contact</a>
+                  <a class="nav-link" (click)="navigate('/portfolio')"
+                    >portfolio</a
+                  >
+                </li>
+
+                <li class="nav-item" *ngIf="!isLoggedIn()">
+                  <a class="nav-link" (click)="navigate('/admin/login')"
+                    >Login</a
+                  >
                 </li>
               </ul>
             </div>

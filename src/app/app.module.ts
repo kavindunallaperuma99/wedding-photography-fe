@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 const config: SocketIoConfig = {
   url: environment.SOCKET_URL,
@@ -22,7 +23,7 @@ const config: SocketIoConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PortfolioComponent],
   imports: [
     BrowserModule,
 
