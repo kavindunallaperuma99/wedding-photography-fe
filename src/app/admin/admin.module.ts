@@ -9,6 +9,7 @@ import { PortfolioUpdateComponent } from './components/portfolio-update/portfoli
 import { ChatHolderComponent } from './components/chat-holder/chat-holder.component';
 import { ChatMessageComponent } from './components/chat-holder/chat-message/chat-message.component';
 import { ChatListComponent } from './components/chat-list/chat-list.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChatListComponent } from './components/chat-list/chat-list.component';
     ChatHolderComponent,
     ChatMessageComponent,
     ChatListComponent,
+    AdminLoginComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule],
   exports: [ChatHolderComponent, ChatMessageComponent],

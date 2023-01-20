@@ -1,23 +1,23 @@
+import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { AuthService } from '../auth/services/auth.service';
+import { UserRole } from '../admin/enums/user-role.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
-  constructor(
-    private authService: AuthService // private toastrService: ToastrService
-  ) {
-    this.authService.validateAdmin('admin@admin.com', 'password');
-  }
+  /**
+   *
+   */
+  constructor(private toastrService: ToastrService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -31,19 +31,16 @@ export class RoleGuard implements CanActivate {
   }
 
   isAuthorized(route: ActivatedRouteSnapshot): boolean {
-    console.log('authservice role', this.authService.role, route);
+    let role = <UserRole>localStorage.getItem('role') || '';
 
     let isAuthenticated =
-      route.data?.roles?.filter((ro: any) => ro == +this.authService.role)
-        .length > 0;
+      route.data.roles.filter((ro: UserRole) => ro == role).length > 0;
 
     if (!isAuthenticated) {
       console.log('not authorized');
-
-      // this.toastrService.error('Not Authorized');
+      this.router.navigateByUrl('/admin/login');
+      this.toastrService.error('Not Authorized');
     }
-
-    console.log('is authenticated', isAuthenticated);
 
     return isAuthenticated;
   }

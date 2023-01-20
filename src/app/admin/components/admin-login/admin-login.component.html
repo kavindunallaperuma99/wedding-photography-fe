@@ -1,0 +1,106 @@
+<!-- START WRAPPER -->
+<div class="wrapper">
+  <!-- START BREADCRUMB AREA -->
+
+  <!-- END BREADCRUMB AREA -->
+
+  <!-- START MAIN CONTENT -->
+  <main class="main-content">
+    <!-- START CONTACT WRAP -->
+    <section class="contact pt-120 pb-90 bg--light-grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 contact__top">
+            <!-- START CONTACT INFORMATION -->
+            <div class="container contact__form">
+              <div class="col-lg-6">
+                <h3>Admin Login</h3>
+                <div class="single__input">
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Username"
+                    [(ngModel)]="userName"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="single__input">
+                  <input
+                    name="name"
+                    type="password"
+                    placeholder="Password"
+                    [(ngModel)]="password"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="text-danger" *ngIf="isInvalid">
+                  Username or Password invalid
+                </div>
+                <div class="single__input">
+                  <button
+                    class="btn btn-danger"
+                    [disabled]="!userName || !password"
+                    (click)="login(userName, password)"
+                  >
+                    Login
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- END CONTACT INFORMATION -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END CONTACT WRAP -->
+  </main>
+  <!-- END MAIN CONTENT -->
+
+  <!-- START FOOTER AREA -->
+  <footer id="footer" class="footer-area bg--dark-grey ptb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="footer">
+            <div class="footer__copyright">
+              <div class="logo">
+                <a href="index.html"
+                  ><img src="assets/images/logo/logo-2.png" alt="footer logo"
+                /></a>
+              </div>
+              <p class="footer__copyright__text">
+                &copy; 2017 <a href="https://hastech.company">Hastech</a> All
+                Right Reserved.
+              </p>
+            </div>
+            <nav class="footer__menu text-center">
+              <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about-us.html">about us</a></li>
+                <li><a href="portfolio.html">portfolio</a></li>
+                <li><a href="index.html">pages</a></li>
+                <li><a href="contact.html">contact</a></li>
+              </ul>
+            </nav>
+            <div class="footer__contact">
+              <ul>
+                <li>
+                  Email :<a href="mailto:photohub@gmail.com">
+                    photohub@gmail.com</a
+                  >
+                </li>
+                <li>
+                  Phone :<a href="callto:+000258028364"> (+00) 012 032 21</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- END FOOTER AREA -->
+</div>

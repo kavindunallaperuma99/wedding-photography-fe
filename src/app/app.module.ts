@@ -1,3 +1,4 @@
+import { ToastrModule } from 'ngx-toastr';
 import { environment } from './../environments/environment';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { HomeComponent } from './home/home/home.component';
@@ -31,6 +32,7 @@ const config: SocketIoConfig = {
     SharedModule,
     NgbModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
 
     AppRoutingModule,
 
