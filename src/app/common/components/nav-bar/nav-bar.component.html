@@ -141,6 +141,15 @@
                   ><span class="ti-pinterest"></span
                 ></a>
               </li>
+              <li class="pinterest">
+                <button
+                  class="btn btn-danger"
+                  *ngIf="isLoggedIn()"
+                  (click)="logout()"
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
         </div>

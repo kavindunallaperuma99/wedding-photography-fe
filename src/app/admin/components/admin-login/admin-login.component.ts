@@ -1,3 +1,4 @@
+import { UserRole } from './../../enums/user-role.enum';
 import { Router } from '@angular/router';
 import { AdminLoginService } from './../../services/admin-login.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class AdminLoginComponent implements OnInit {
     private adminLoginService: AdminLoginService,
     private router: Router
   ) {
-    if (localStorage.getItem('role')) {
+    if (localStorage.getItem('role') == UserRole.Admin.toString()) {
       this.router.navigateByUrl('admin/dashboard');
     }
   }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserRole } from './../enums/user-role.enum';
 import { Injectable } from '@angular/core';
 
@@ -5,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AdminLoginService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   login(username: string, password: string): boolean {
     if (username == 'admin' && password == 'admin') {
@@ -20,5 +21,6 @@ export class AdminLoginService {
   logout() {
     localStorage.removeItem('role');
     localStorage.removeItem('authToken');
+    this.router.navigateByUrl('/admin/login');
   }
 }

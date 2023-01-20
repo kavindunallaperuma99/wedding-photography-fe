@@ -1,4 +1,4 @@
-<div *ngFor="let chat of chats$ | async">
+<div *ngFor="let chat of (chats$ | async)?.slice()?.reverse()">
   <div class="bg-dark mb-1">
     <div
       class="container btn"
