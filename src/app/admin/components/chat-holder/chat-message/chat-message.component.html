@@ -2,7 +2,9 @@
   <div
     class="row message-container shadow"
     [class]="
-      name == 'You' ? 'primary-purple-dark text-white' : 'bg-white text-dark'
+      name == 'You'
+        ? 'primary-purple-dark text-white'
+        : 'receiver-text text-dark'
     "
   >
     <div class="col-md-12 ml-2">

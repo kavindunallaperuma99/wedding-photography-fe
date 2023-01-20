@@ -17,7 +17,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 const config: SocketIoConfig = {
   url: environment.SOCKET_URL,
-  options: {},
+  options: { query: `user_role=${localStorage.getItem('role')}` },
 };
 
 @NgModule({

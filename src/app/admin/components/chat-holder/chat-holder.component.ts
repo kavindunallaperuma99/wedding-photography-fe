@@ -14,37 +14,51 @@ export class ChatHolderComponent implements OnInit {
   @Input() mode: string = 'Client';
   @Input() chat!: Chat;
 
-  constructor(private socket: Socket) {
-    this.getMessage();
-  }
-  getMessage() {
-    this.socket
-      .fromEvent('message')
-      .subscribe((res) => console.log('messagee', res));
-  }
+  constructor(private socket: Socket) {}
 
   @ViewChild('messageContainer') messageContainer: ElementRef =
     {} as ElementRef;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.mode == 'Client') {
+      this.chat = new Chat();
+    }
+
+    //listening to messages
+    this.socket.on('message', (res: ChatMessage) => {
+      console.log('messagee', res, this.chat);
+      let msg = new ChatMessage();
+      if (
+        (this.mode === 'Admin' && res.senderId == this.chat.userId) ||
+        (this.mode == 'Client' && res.senderId == 'Admin')
+      ) {
+        msg.message = res.message;
+        msg.senderId = res.senderId!;
+        if (this.chat) {
+          this.chat?.messages?.push(msg);
+        }
+      }
+    });
+  }
 
   sendMessage() {
     // console.log('sending message');
 
     if (this.messageInput.length > 0) {
-      this.messages.push({ message: this.messageInput, name: 'You' });
+      let message = new ChatMessage();
+      message.message = this.messageInput;
+      message.mode = this.mode;
+      message.receiverUserId = this.chat.userId;
+      message.senderId = 'You';
+
+      console.log('sending message', message);
+      this.chat.messages.push(message);
 
       if (this.mode == 'Admin') {
-        this.socket.emit('message', {
-          mode: this.mode,
-          message: this.messageInput,
-          receiverUserId: this.chat.userId,
-        });
+        this.socket.emit('message', message);
       } else if (this.mode == 'Client') {
-        this.socket.emit('message', {
-          mode: this.mode,
-          message: this.messageInput,
-        });
+        message.receiverUserId = 'Admin';
+        this.socket.emit('message', message);
       }
       this.messageInput = '';
     }

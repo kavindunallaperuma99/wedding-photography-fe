@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   selectedChat!: Chat;
+  constructor() {
+    localStorage.setItem('role', 'Admin');
+  }
   ngOnInit(): void {}
 
   selectChat(chat: Chat) {

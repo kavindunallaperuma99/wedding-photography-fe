@@ -5,8 +5,8 @@
     #messageContainer
   >
     <app-chat-message
-      *ngFor="let message of messages"
-      [name]="message.name"
+      *ngFor="let message of chat?.messages"
+      [name]="message.senderId!"
       [message]="message.message"
     ></app-chat-message>
   </section>
@@ -25,6 +25,7 @@
           placeholder="Enter Message"
           [(ngModel)]="messageInput"
           [ngModelOptions]="{ standalone: true }"
+          [disabled]="chat == null"
         />
       </div>
 
