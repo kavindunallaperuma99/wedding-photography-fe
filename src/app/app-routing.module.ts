@@ -1,3 +1,5 @@
+import { UserRole } from './admin/enums/user-role.enum';
+import { AuthGuard } from './guards/auth.guard';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { RoleGuard } from './guards/role.guard';
 import { HomeComponent } from './home/home/home.component';
@@ -31,7 +33,14 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   { path: 'portfolio', component: PortfolioComponent },
-  { path: 'portfolio/upload', component: PortfolioUploadComponent },
+  {
+    path: 'portfolio/upload',
+    component: PortfolioUploadComponent,
+    canActivate: [RoleGuard, AuthGuard],
+    data: {
+      roles: [UserRole.Admin],
+    },
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
