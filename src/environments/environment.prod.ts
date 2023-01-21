@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  API_URL: 'http://localhost:3000',
+  API_URL: 'https://wedding-photography-be-production.up.railway.app',
   firebaseConfig: {
     apiKey: 'AIzaSyD0ChSnHgiM9tVmBd7G-yFK5M9yxOLSBTc',
     authDomain: 'api-sd-md.firebaseapp.com',
