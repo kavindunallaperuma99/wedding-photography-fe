@@ -5,6 +5,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserType } from './auth/enums/user-types.enum';
+import { PortfolioUploadComponent } from './portfolio-upload/portfolio-upload.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   { path: 'portfolio', component: PortfolioComponent },
+  { path: 'portfolio/upload', component: PortfolioUploadComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

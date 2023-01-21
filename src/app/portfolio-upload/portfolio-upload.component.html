@@ -1,0 +1,136 @@
+<div class="fakeloader"></div>
+
+<!-- START WRAPPER -->
+<div class="wrapper">
+  <!-- START BREADCRUMB AREA -->
+  <div class="breadcrumb-area" data-black-overlay="7">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="pt-breadcrumb text-center ptb-110">
+            <h3>Portfolio Upload</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END BREADCRUMB AREA -->
+
+  <!-- START MAIN CONTENT -->
+  <main class="main-content">
+    <!-- START PAGE PORTFOLIO -->
+    <div class="portfolio-wrap ptb-120 bg--light-grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-12 col-md-12 col-sm-12">
+            <!-- START PORTFOIO FILTERS -->
+            <input
+              type="file"
+              class="m-3 py-2 px-2 border"
+              (change)="selectFile($event)"
+            />
+            <div *ngIf="isUploading" class="progress my-2">
+              <div
+                class="progress-bar progress-bar-info text-primary-color"
+                role="progressbar"
+                attr.aria-valuenow="{{ percentage }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [ngStyle]="{ width: percentage + '%' }"
+              >
+                {{ percentage }}%
+              </div>
+            </div>
+            <!-- END PORTFOIO FILTERS -->
+          </div>
+        </div>
+      </div>
+      <div class="portfolios layout-2">
+        <!-- START SINGLE PORTFOLIO -->
+        <div
+          class="portfolio pf-fashion pf-lifestyle"
+          *ngFor="let portfolio of portfolios$ | async; portfolios"
+        >
+          <div class="portfolio__inner">
+            <div class="portfolio__image">
+              <img [src]="portfolio.url" alt="portfolio image" />
+            </div>
+            <div class="portfolio__content">
+              <span class="portfolio-zoom-trigger">
+                <a [href]="portfolio.url"><span class="ti-eye"></span></a>
+              </span>
+              <div class="portfolio__content__text">
+                <h5>
+                  <a href="single-portfolio.html">{{ portfolio.fileName }}</a>
+                </h5>
+                <div class="share__content__wrap">
+                  <a class="share-toggle" (click)="deleteItem(portfolio.id!)"
+                    ><span class="ti-deletethis"></span> delete</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END SINGLE PORTFOLIO -->
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="portfolio__load-more mt-50 text-center">
+              <a class="pt-button pt-button--grey">Load more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PAGE PORTFOLIO -->
+  </main>
+  <!-- END MAIN CONTENT -->
+
+  <!-- START FOOTER AREA -->
+  <footer id="footer" class="footer-area bg--dark-grey ptb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="footer">
+            <div class="footer__copyright">
+              <div class="logo">
+                <a href="index.html"
+                  ><img src="assets/images/logo/logo-2.png" alt="footer logo"
+                /></a>
+              </div>
+              <p class="footer__copyright__text">
+                &copy; 2017 <a href="https://hastech.company">Hastech</a> All
+                Right Reserved.
+              </p>
+            </div>
+            <nav class="footer__menu text-center">
+              <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about-us.html">about us</a></li>
+                <li><a href="portfolio.html">portfolio</a></li>
+                <li><a href="index.html">pages</a></li>
+                <li><a href="contact.html">contact</a></li>
+              </ul>
+            </nav>
+            <div class="footer__contact">
+              <ul>
+                <li>
+                  Email :<a href="mailto:photohub@gmail.com">
+                    photohub@gmail.com</a
+                  >
+                </li>
+                <li>
+                  Phone :<a href="callto:+000258028364"> (+00) 012 032 21</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- END FOOTER AREA -->
+</div>
+<!-- END WRAPPER -->

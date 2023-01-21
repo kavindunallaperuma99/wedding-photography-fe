@@ -16,8 +16,6 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {}
 
   isLoggedIn(): boolean {
-    console.log('navbar', localStorage.getItem('authToken'));
-
     return localStorage.getItem('authToken') !== null;
   }
 

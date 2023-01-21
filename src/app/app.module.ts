@@ -16,6 +16,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PortfolioUploadComponent } from './portfolio-upload/portfolio-upload.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 const config: SocketIoConfig = {
   url: environment.SOCKET_URL,
@@ -23,7 +28,7 @@ const config: SocketIoConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, PortfolioComponent],
+  declarations: [AppComponent, PortfolioComponent, PortfolioUploadComponent],
   imports: [
     BrowserModule,
 
@@ -38,6 +43,10 @@ const config: SocketIoConfig = {
     AppRoutingModule,
 
     SocketIoModule.forRoot(config),
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
