@@ -1,4 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { RouterTestingModule } from '@angular/router/testing';
+import { environment } from 'src/environments/environment';
 
 import { PortfolioUploadComponent } from './portfolio-upload.component';
 
@@ -8,9 +13,14 @@ describe('PortfolioUploadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PortfolioUploadComponent ]
-    })
-    .compileComponents();
+      declarations: [PortfolioUploadComponent],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

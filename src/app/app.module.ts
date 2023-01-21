@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PortfolioUploadComponent } from './portfolio-upload/portfolio-upload.component';
 
@@ -22,6 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = {
   url: environment.SOCKET_URL,
   options: { query: `user_role=${localStorage.getItem('role')}` },

@@ -18,7 +18,7 @@ export class AdminLoginComponent implements OnInit {
     private router: Router
   ) {
     if (localStorage.getItem('role') == UserRole.Admin.toString()) {
-      this.router.navigateByUrl('admin/dashboard');
+      this.router.navigateByUrl('/admin/dashboard');
     }
   }
 
