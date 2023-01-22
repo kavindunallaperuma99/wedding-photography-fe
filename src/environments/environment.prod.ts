@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   API_URL: 'https://wedding-photography-be-production.up.railway.app',
-  SOCKET_URL: 'https://wedding-photography-be-production.up.railway.app',
+  SOCKET_URL: 'https://wedding-photography-be-production.up.railway.app:80',
   firebaseConfig: {
     apiKey: 'AIzaSyD0ChSnHgiM9tVmBd7G-yFK5M9yxOLSBTc',
     authDomain: 'api-sd-md.firebaseapp.com',
