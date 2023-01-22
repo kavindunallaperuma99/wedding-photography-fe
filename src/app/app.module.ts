@@ -24,7 +24,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = {
   url: environment.SOCKET_URL,
-  options: { query: `user_role=${localStorage.getItem('role')}` },
+  options: {
+    query: {
+      user_role: localStorage.getItem('role')!
+    }
+  },
 };
 
 @NgModule({
@@ -51,4 +55,4 @@ const config: SocketIoConfig = {
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
