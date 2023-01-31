@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
+  //test
   selectedChat!: Chat;
   constructor() {
     localStorage.setItem('role', 'Admin');
