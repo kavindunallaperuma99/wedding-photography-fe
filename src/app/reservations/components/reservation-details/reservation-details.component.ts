@@ -38,6 +38,7 @@ export class ReservationDetailsComponent implements OnInit {
   onSubmit() {
     let reservation = new Reservation();
     reservation = this.reservationFormGroup.value;
+    reservation.date = new Date(reservation.date)
     this.reservationsService.create(reservation).subscribe((res) => {
       if (res.success) {
         this.reservationFormGroup.reset();
